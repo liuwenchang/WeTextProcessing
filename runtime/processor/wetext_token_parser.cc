@@ -39,7 +39,7 @@ const std::unordered_map<std::string, std::vector<std::string>> ZH_ITN_ORDERS =
     {{"date", {"year", "month", "day"}},
      {"fraction", {"sign", "numerator", "denominator"}},
      {"measure", {"numerator", "denominator", "value"}},
-     {"money", {"currency", "value", "decimal"}},
+     {"money", {"value", "decimal", "currency"}},
      {"time", {"hour", "minute", "second", "noon"}}};
 
 TokenParser::TokenParser(ParseType type) {
