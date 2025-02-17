@@ -52,11 +52,13 @@ class Date(Processor):
         self.tagger = self.add_tokens(date)
 
     def build_verbalizer(self):
-        addsign = insert("/")
+        #addsign = insert("/")
+        yearsign = insert("年")
+        monthsign = insert("月")
         year = delete('year: "') + self.SIGMA + delete('" ')
         year_only = delete('year: "') + self.SIGMA + delete('"')
         month = delete('month: "') + self.SIGMA + delete('"')
         day = delete(' day: "') + self.SIGMA + delete('"')
-        verbalizer = (year + addsign).ques + month + (addsign + day).ques
+        verbalizer = (year + yearsign).ques + month + (monthsign + day).ques
         verbalizer |= year_only
         self.verbalizer = self.delete_tokens(verbalizer)
