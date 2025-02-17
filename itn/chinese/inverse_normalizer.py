@@ -51,8 +51,8 @@ class InverseNormalizer(Processor):
                   | add_weight(Fraction().tagger, 1.05)
                   | add_weight(
                       Measure(enable_0_to_9=self.enable_0_to_9).tagger, 1.05)
-                  | add_weight(
-                      Money(enable_0_to_9=self.enable_0_to_9).tagger, 1.04)
+                  #| add_weight(
+                  #    Money(enable_0_to_9=self.enable_0_to_9).tagger, 1.04)
                   | add_weight(Time().tagger, 1.05)
                   | add_weight(
                       Cardinal(self.convert_number, self.enable_0_to_9,
@@ -73,7 +73,7 @@ class InverseNormalizer(Processor):
                       | Fraction().verbalizer
                       | Math().verbalizer
                       | Measure(enable_0_to_9=self.enable_0_to_9).verbalizer
-                      | Money(enable_0_to_9=self.enable_0_to_9).verbalizer
+                      #| Money(enable_0_to_9=self.enable_0_to_9).verbalizer
                       | Time().verbalizer
                       | LicensePlate().verbalizer
                       | Whitelist().verbalizer).optimize()
