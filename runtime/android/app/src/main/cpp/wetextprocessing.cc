@@ -57,7 +57,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void*) {
     return JNI_ERR;
   }
 
-  jclass c = env->FindClass("com/mobvoi/WeTextProcessing/WeTextProcessing");
+  jclass c = env->FindClass("com/thunisoft/platform/server/business/ai/product/asr/stream/websocket/wordHandle/WeTextProcessService");
   if (c == nullptr) {
     return JNI_ERR;
   }
