@@ -51,5 +51,5 @@ class Money(Processor):
         currency = delete('currency: "') + self.SIGMA + delete('"')
         value = delete(' value: "') + self.SIGMA + delete('"')
         decimal = delete(' decimal: "') + self.SIGMA + delete('"')
-        verbalizer = currency + value + decimal
+        verbalizer = value + decimal + currency
         self.verbalizer = self.delete_tokens(verbalizer)
