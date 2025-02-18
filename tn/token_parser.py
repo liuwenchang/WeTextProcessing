@@ -31,7 +31,7 @@ ITN_ORDERS = {
     'fraction': ['sign', 'numerator', 'denominator'],
     'measure': ['numerator', 'denominator', 'value'],
     'money': ['value', 'decimal', 'currency'],
-    'time': ['noon', 'hour', 'minute', 'second']
+    'time': ['hour', 'minute', 'second']
 }
 
 
