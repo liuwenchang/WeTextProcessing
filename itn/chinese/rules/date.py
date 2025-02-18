@@ -55,10 +55,11 @@ class Date(Processor):
         #addsign = insert("/")
         yearsign = insert("年")
         monthsign = insert("月")
+        daysign = insert("日")
         year = delete('year: "') + self.SIGMA + delete('" ')
         year_only = delete('year: "') + self.SIGMA + delete('"')
         month = delete('month: "') + self.SIGMA + delete('"')
         day = delete(' day: "') + self.SIGMA + delete('"')
-        verbalizer = (year + yearsign).ques + month + (monthsign + day).ques
+        verbalizer = (year + yearsign).ques + month + (monthsign + day).ques + daysign
         verbalizer |= year_only
         self.verbalizer = self.delete_tokens(verbalizer)
