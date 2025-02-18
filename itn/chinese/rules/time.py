@@ -40,7 +40,7 @@ class Time(Processor):
 
     def build_verbalizer(self):
         addcolon = insert(':')
-        hour = delete('hour: "') + self.SIGMA + delete('"')
+        hour = delete(' hour: "') + self.SIGMA + delete('"')
         minute = delete(' minute: "') + self.SIGMA + delete('"')
         second = delete(' second: "') + self.SIGMA + delete('"')
         noon = delete('noon: "') + self.SIGMA + delete('"')
