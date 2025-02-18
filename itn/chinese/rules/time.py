@@ -43,6 +43,6 @@ class Time(Processor):
         hour = delete('hour: "') + self.SIGMA + delete('"')
         minute = delete(' minute: "') + self.SIGMA + delete('"')
         second = delete(' second: "') + self.SIGMA + delete('"')
-        noon = delete(' noon: "') + self.SIGMA + delete('"')
+        noon = delete('noon: "') + self.SIGMA + delete('"')
         verbalizer = (noon + hour + addcolon + minute + (addcolon + second).ques)
         self.verbalizer = self.delete_tokens(verbalizer)
