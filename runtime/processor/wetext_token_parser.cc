@@ -40,7 +40,7 @@ const std::unordered_map<std::string, std::vector<std::string>> ZH_ITN_ORDERS =
      {"fraction", {"sign", "numerator", "denominator"}},
      {"measure", {"numerator", "denominator", "value"}},
      {"money", {"value", "decimal", "currency"}},
-     {"time", {"noon", "hour", "minute", "second"}}};
+     {"time", {"hour", "minute", "second"}}};
 
 TokenParser::TokenParser(ParseType type) {
   if (type == ParseType::kZH_TN) {
