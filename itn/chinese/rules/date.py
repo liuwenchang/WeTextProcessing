@@ -60,6 +60,6 @@ class Date(Processor):
         year_only = delete('year: "') + self.SIGMA + delete('"')
         month = delete('month: "') + self.SIGMA + delete('"')
         day = delete(' day: "') + self.SIGMA + delete('"')
-        verbalizer = (year + yearsign).ques + month + (monthsign + day).ques + daysign
+        verbalizer = (year + yearsign).ques + (month + monthsign).ques + (day + daysign).ques
         verbalizer |= year_only
         self.verbalizer = self.delete_tokens(verbalizer)
