@@ -43,11 +43,13 @@ class Date(Processor):
         year_only = insert('year: "') + (yyyy | yyy | yy) + \
             accep('年') + insert('"')
         month = insert('month: "') + mm + insert('"')
+        month_only = insert('month: "') + mm + insert('"')
         day = insert(' day: "') + dd + insert('"')
+        day_only = insert('day: "') + dd + insert('"')
         # yyyy/mm/dd | yyyy/mm | mm/dd | yyyy
         date = ((year + month + day)
                 | (year + month)
-                | (month + day)) | year_only | month | day
+                | (month + day)) | year_only | month_only | day_only
         self.tagger = self.add_tokens(date)
 
     def build_verbalizer(self):
@@ -58,9 +60,11 @@ class Date(Processor):
         year = delete('year: "') + self.SIGMA + delete('" ')
         year_only = delete('year: "') + self.SIGMA + delete('"')
         month = delete('month: "') + self.SIGMA + delete('"')
+        month_only = delete('month: "') + self.SIGMA + delete('"')
         day = delete(' day: "') + self.SIGMA + delete('"')
+        day_only = delete('day: "') + self.SIGMA + delete('"')
         verbalizer = (year + yearsign).ques + (month + monthsign).ques + (day + daysign).ques
         verbalizer |= year_only
-        verbalizer |= day
-        verbalizer |= month
+        verbalizer |= day_only
+        verbalizer |= month_only
         self.verbalizer = self.delete_tokens(verbalizer)
