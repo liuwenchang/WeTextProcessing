@@ -44,11 +44,10 @@ class Date(Processor):
             accep('年') + insert('"')
         month = insert('month: "') + mm + insert('"')
         day = insert(' day: "') + dd + insert('"')
-
         # yyyy/mm/dd | yyyy/mm | mm/dd | yyyy
         date = ((year + month + day)
                 | (year + month)
-                | (month + day)) | year_only
+                | (month + day)) | year_only | month | day
         self.tagger = self.add_tokens(date)
 
     def build_verbalizer(self):
@@ -62,4 +61,6 @@ class Date(Processor):
         day = delete(' day: "') + self.SIGMA + delete('"')
         verbalizer = (year + yearsign).ques + (month + monthsign).ques + (day + daysign).ques
         verbalizer |= year_only
+        verbalizer |= day
+        verbalizer |= month
         self.verbalizer = self.delete_tokens(verbalizer)
