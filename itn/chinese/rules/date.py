@@ -62,8 +62,8 @@ class Date(Processor):
         month = delete('month: "') + self.SIGMA + delete('"')
         month_only = delete('month: "') + self.SIGMA + delete('"') + monthsign
         day = delete(' day: "') + self.SIGMA + delete('"')
-        day_only = delete('day: "') + self.SIGMA + delete('"') + daysign
-        verbalizer = (year + yearsign).ques + (month + monthsign).ques + (day + daysign).ques
+        day_only = delete('day: "') + self.SIGMA + delete('"')
+        verbalizer = (year + yearsign).ques + (month + monthsign).ques + (day).ques
         verbalizer |= year_only
         verbalizer |= day_only
         verbalizer |= month_only
