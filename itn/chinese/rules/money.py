@@ -38,7 +38,7 @@ class Money(Processor):
         number = Cardinal().number if self.enable_0_to_9 else \
             Cardinal().number_exclude_0_to_9
         # 七八美元 => $7~8
-        number |= digit + insert("~") + digit
+        #number |= digit + insert("~") + digit
         # 三千三百八十元五毛八分 => ¥3380.58
         tagger = (insert('value: "') + number + insert('"') +
                   insert(' currency: "') + (code | symbol) + insert('"') +
