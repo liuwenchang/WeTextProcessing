@@ -134,7 +134,7 @@ class Cardinal(Processor):
         # 五六万，三五千，六七百，三四十
         # 十七八美元 => $17~18, 四十五六岁 => 45-6岁,
         # 三百七八公里 => 370-80km, 三百七八十千克 => 370-80kg
-        number_exclude_0_to_9 |= special_tilde
+        number_exclude_0_to_9 |= add_weight(special_tilde,0.2)
         number_exclude_0_to_9 |= add_weight(_special_dash, -0.1)
 
         self.number_exclude_0_to_9 = (sign.ques +
@@ -160,6 +160,5 @@ class Cardinal(Processor):
                 cardinal |= add_weight(number, 0.1)
             else:
                 cardinal |= add_weight(number_exclude_0_to_9, 0.1)
-        tagger = insert('value: "') + cardinal + (insert(" ") + cardinal).star \
-            + insert('"')
+        tagger = insert('value: "') + cardinal + insert('"')
         self.tagger = self.add_tokens(tagger)
